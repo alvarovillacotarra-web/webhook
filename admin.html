@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0c0f18">
+  <title>WEBHOOK — Administración</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="noise"></div><aside class="sidebar"><a class="logo" href="index.html">WEB<span>↗</span>HOOK</a><p class="workspace">ESPACIO INTERNO</p><nav><a class="active" href="#resumen"><i>◉</i> Resumen</a><a href="#solicitudes"><i>↗</i> Solicitudes <b>0</b></a><a href="#proyectos"><i>▣</i> Proyectos</a><a href="#ajustes"><i>⚙</i> Ajustes</a></nav><div class="sidebar-bottom"><span class="status"><i></i> Sistema operativo</span><button id="logout" type="button">Cerrar sesión <b>↗</b></button></div></aside>
+  <main><header class="topbar"><div><p class="eyebrow">WEBHOOK / ADMIN</p><h1>Buenos días, <em>Álvaro.</em></h1></div><div class="top-actions"><span id="today"></span><div class="avatar" id="avatar">A</div></div></header>
+    <section class="overview" id="resumen"><div class="metric"><span>Solicitudes recibidas</span><strong>0</strong><small>Cuando lleguen formularios, aparecerán aquí.</small><i>↗</i></div><div class="metric"><span>Proyectos activos</span><strong>0</strong><small>Tu siguiente proyecto empezará aquí.</small><i>✦</i></div><div class="metric violet"><span>Estado de tu web</span><strong>Live</strong><small>WEBHOOK está listo para impresionar.</small><i>●</i></div></section>
+    <section class="dashboard-grid"><div class="panel requests" id="solicitudes"><div class="panel-head"><div><p class="eyebrow">BANDEJA DE ENTRADA</p><h2>Solicitudes nuevas</h2></div><button type="button" class="ghost">Ver todas <b>→</b></button></div><div class="empty-state"><div class="empty-icon">↗</div><h3>Aún no hay solicitudes.</h3><p>Las personas que completen el formulario de tu web aparecerán aquí cuando conectemos el formulario a la base de datos.</p></div></div><div class="panel quick"><p class="eyebrow">ACCESOS RÁPIDOS</p><h2>Tu espacio de trabajo</h2><a href="index.html" target="_blank">Ver web pública <b>↗</b></a><button type="button" id="copy-url">Copiar enlace de la web <b>⧉</b></button><div class="profile"><div class="avatar" id="profile-avatar">A</div><div><strong id="profile-name">Administrador</strong><span id="profile-email">Cargando sesión…</span></div></div></div></section>
+    <section class="panel roadmap" id="proyectos"><div><p class="eyebrow">PRÓXIMOS PASOS</p><h2>Todo preparado<br>para <em>crecer.</em></h2></div><ol><li><span>01</span><div><b>Publica tu web</b><p>Haz que WEBHOOK esté disponible con Firebase Hosting.</p></div></li><li><span>02</span><div><b>Conecta solicitudes</b><p>Guarda automáticamente los formularios de contacto.</p></div></li><li><span>03</span><div><b>Gestiona tus proyectos</b><p>Convierte cada nueva oportunidad en un gran resultado.</p></div></li></ol></section>
+  </main><script src="firebase-config.js"></script><script type="module" src="admin.js"></script>
+</body>
+</html>
