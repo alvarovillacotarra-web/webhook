@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email == 'alvaro.villa.cotarra@gmail.com';
+    }
+
+    match /solicitudes/{solicitudId} {
+      allow create: if request.resource.data.keys().hasOnly([
+        'nombre', 'negocio', 'email', 'telefono', 'tipo', 'necesidad',
+        'mensaje', 'estado', 'creadaEn'
+      ])
+      && request.resource.data.nombre is string
+      && request.resource.data.nombre.size() >= 2
+      && request.resource.data.nombre.size() <= 100
+      && request.resource.data.negocio is string
+      && request.resource.data.negocio.size() >= 2
+      && request.resource.data.negocio.size() <= 120
+      && request.resource.data.email is string
+      && request.resource.data.email.size() <= 254
+      && request.resource.data.telefono is string
+      && request.resource.data.telefono.size() <= 40
+      && request.resource.data.tipo is string
+      && request.resource.data.tipo.size() <= 80
+      && request.resource.data.necesidad is string
+      && request.resource.data.necesidad.size() <= 80
+      && request.resource.data.mensaje is string
+      && request.resource.data.mensaje.size() <= 2000
+      && request.resource.data.estado == 'nueva'
+      && request.resource.data.creadaEn == request.time;
+      allow read, update, delete: if isAdmin();
+    }
+  }
+}
